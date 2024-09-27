@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/Central.png</file>
+        <file>images/Central_pressed.png</file>
+        <file>images/Color.png</file>
+        <file>images/Color_pressed.png</file>
+        <file>images/Move.png</file>
+        <file>images/Move_pressed.png</file>
+        <file>images/Parallel.png</file>
+        <file>images/Parallel_pressed.png</file>
+        <file>images/Rotate.png</file>
+        <file>images/Rotate_pressed.png</file>
+        <file>images/Cube.png</file>
+        <file>images/File.png</file>
+        <file>images/File_pressed.png</file>
+        <file>images/Scale.png</file>
+        <file>images/Scale_pressed.png</file>
+        <file>images/Screencast.png</file>
+        <file>images/Screencast_pressed.png</file>
+        <file>images/Cube_template.png</file>
+        <file>images/Cube_template_2.png</file>
+        <file>images/Screen_tamplate.png</file>
+        <file>images/Background_grid.png</file>
+        <file>images/Screenshot.png</file>
+        <file>images/Screenshot_pressed.png</file>
+        <file>images/Dot_circle.png</file>
+        <file>images/Dot_none.png</file>
+        <file>images/Dot_square.png</file>
+        <file>images/Cube_empty.png</file>
+        <file>images/Dot_circle_pressed.png</file>
+        <file>images/Dot_none_pressed.png</file>
+        <file>images/Dot_square_pressed.png</file>
+        <file>images/Square_dotted.png</file>
+        <file>images/Square_dotted_pressed.png</file>
+    </qresource>
+</RCC>

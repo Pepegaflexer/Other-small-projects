@@ -1,0 +1,1677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>3D viewer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/images/images/Cube.png</normaloff>:/images/images/Cube.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">* {
+	text-align: center;
+	vertical-align: center;
+	border: 0px;
+}
+
+QMainWindow {
+	background-color: #171b20;
+}
+
+QColorDialog {
+	background-color: #282c34;
+	border-radius: 10px;
+	color: #FFFFFF;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>630</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>500</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>700</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	background-color: #282c34;
+	border-radius: 20px;
+	margin: 0px;
+}
+
+QPushButton {
+	border: 0px;
+}
+
+QRadioButton:indicator {
+	border: 0px;
+}
+
+QLabel {
+	background-color: #3e90ff;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="fileButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;открыть файл...&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/File.png</normaloff>:/images/images/File.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>9</y>
+       <width>3</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="geometry">
+      <rect>
+       <x>73</x>
+       <y>1</y>
+       <width>181</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QRadioButton" name="move_mode">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;перемещение&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/images/images/Move.png</normaloff>:/images/images/Move.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="rotate_mode">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>10</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>поворот</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/images/images/Rotate.png</normaloff>:/images/images/Rotate.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="scale_mode">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>10</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;масштабирование&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/images/images/Scale.png</normaloff>
+        <normalon>:/images/images/Scale_pressed.png</normalon>:/images/images/Scale.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="edit_off">
+      <property name="geometry">
+       <rect>
+        <x>151</x>
+        <y>0</y>
+        <width>20</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;отключить режим изменения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+     <zorder>rotate_mode</zorder>
+     <zorder>scale_mode</zorder>
+     <zorder>move_mode</zorder>
+     <zorder>edit_off</zorder>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>9</y>
+       <width>3</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="background_color">
+     <property name="geometry">
+      <rect>
+       <x>328</x>
+       <y>18</y>
+       <width>41</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;изменить цвет фона&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Screen_tamplate.png</normaloff>:/images/images/Screen_tamplate.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cube_background_3">
+     <property name="geometry">
+      <rect>
+       <x>333</x>
+       <y>19</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>9</y>
+       <width>3</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="central_mode">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>18</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;центральная проекция&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Central.png</normaloff>:/images/images/Central.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="parallel_mode">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>18</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;параллельная проекция&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Parallel.png</normaloff>:/images/images/Parallel.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="screenshot">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>18</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>скриншот</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Screenshot.png</normaloff>:/images/images/Screenshot.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="screencast">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>18</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>запись экрана</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Screencast.png</normaloff>:/images/images/Screencast.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="empty_cube_mask">
+     <property name="geometry">
+      <rect>
+       <x>275</x>
+       <y>12</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background-color:rgba( 255, 255, 255, 0% )
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/images/images/Cube_empty.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cubic">
+     <property name="geometry">
+      <rect>
+       <x>276</x>
+       <y>16</y>
+       <width>35</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	background-color:rgba( 255, 255, 255, 0% )
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resources.qrc">:/images/images/Cube.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cubic_mask">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>10</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;изменить цвет...&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>cube_background_3</zorder>
+    <zorder>fileButton</zorder>
+    <zorder>groupBox_2</zorder>
+    <zorder>parallel_mode</zorder>
+    <zorder>central_mode</zorder>
+    <zorder>label</zorder>
+    <zorder>label_2</zorder>
+    <zorder>screencast</zorder>
+    <zorder>screenshot</zorder>
+    <zorder>label_3</zorder>
+    <zorder>background_color</zorder>
+    <zorder>empty_cube_mask</zorder>
+    <zorder>cubic</zorder>
+    <zorder>cubic_mask</zorder>
+   </widget>
+   <widget class="QGroupBox" name="color_bar">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>170</y>
+      <width>401</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	background-color: #282c34;
+	border-radius: 20px;
+	margin: 0px;
+}
+
+QPushButton {
+	background-color: #3e90ff;
+	border-radius: 10px;
+}
+
+QLabel {
+	background-color:rgba( 255, 255, 255, 0% ); /*#282c34; */
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+}
+
+QRadioButton:indicator {
+	background-color: rgba( 255, 255, 255, 0% );
+}
+
+QSpinBox {
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 15px;
+	background-color:  #282c34;
+	color: #24a5ff;
+	margin: 0px;
+}
+
+QSpinBox#spin::up-arrow  {
+	min-width: 19px;
+	min-height: 14px;
+	max-width: 19px;
+	max-height: 14px;
+	height: 19px;
+	width: 14px;
+	margin: 0px;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="color_bar_facets">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Цвет точек:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="vertexes_color">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>20</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="lines_color">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>60</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="color_bar_facets_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Цвет линий:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="color_bar_facets_4">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>15</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Отображение точек</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="color_bar_facets_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>97</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Размер точек</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSlider" name="vertex_size_slider">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>127</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>50</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="color_bar_facets_6">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>110</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Отображение линий</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="color_bar_facets_7">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>147</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Толщина линий</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSlider" name="line_width_slider">
+     <property name="geometry">
+      <rect>
+       <x>19</x>
+       <y>177</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>10</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="sliderPosition">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>50</y>
+       <width>180</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QRadioButton" name="circle_mode">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;круг&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/images/images/Dot_circle.png</normaloff>:/images/images/Dot_circle.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="none_mode">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>0</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;невидимые&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/images/images/Dot_none.png</normaloff>:/images/images/Dot_none.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="square_mode">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>0</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;квадрат&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/images/images/Dot_square.png</normaloff>:/images/images/Dot_square.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="geometry">
+      <rect>
+       <x>219</x>
+       <y>145</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QRadioButton" name="line_mode_solid">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;сплошные&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/images/images/Dot_square.png</normaloff>:/images/images/Dot_square.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="line_mode_dotted">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>0</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;пунктирные&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/images/images/Square_dotted.png</normaloff>:/images/images/Square_dotted.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QSpinBox" name="line_width_spin">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>170</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>10</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="vertex_size_spin">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>120</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>50</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+   </widget>
+   <widget class="ModelViewer" name="viewer_widget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>831</width>
+      <height>521</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="scale_bar">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>470</y>
+      <width>211</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	background-color: #282c34;
+	border-radius: 20px;
+	margin: 0px;
+}
+
+QPushButton {
+	background-color: #3e90ff;
+	border-radius: 10px;
+}
+
+QLabel {
+	background-color:rgba( 255, 255, 255, 0% ); /*#282c34; */
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+}
+
+QRadioButton:indicator {
+	background-color: rgba( 255, 255, 255, 0% );
+}
+
+QSpinBox {
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 15px;
+	background-color:  #282c34;
+	color: #24a5ff;
+	margin: 0px;
+}
+
+QSpinBox#spin::up-arrow  {
+	min-width: 19px;
+	min-height: 14px;
+	max-width: 19px;
+	max-height: 14px;
+	height: 19px;
+	width: 14px;
+	margin: 0px;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="scale_bar_facets_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>масштабирование</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSlider" name="scale_slider">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>-10</number>
+     </property>
+     <property name="maximum">
+      <number>10</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="scale_spin">
+     <property name="geometry">
+      <rect>
+       <x>163</x>
+       <y>62</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>-10</number>
+     </property>
+     <property name="maximum">
+      <number>10</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="scale_bar_facets_9">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>61</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+	color: #24a5ff;
+}</string>
+     </property>
+     <property name="text">
+      <string>0.1 x</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="rotate_bar">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>390</y>
+      <width>211</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	background-color: #282c34;
+	border-radius: 20px;
+	margin: 0px;
+}
+
+QPushButton {
+	background-color: #3e90ff;
+	border-radius: 10px;
+}
+
+QLabel {
+	background-color:rgba( 255, 255, 255, 0% ); /*#282c34; */
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+}
+
+QRadioButton:indicator {
+	background-color: rgba( 255, 255, 255, 0% );
+}
+
+QSpinBox {
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 15px;
+	background-color:  #282c34;
+	color: #24a5ff;
+	margin: 0px;
+}
+
+QSpinBox#spin::up-arrow  {
+	min-width: 19px;
+	min-height: 14px;
+	max-width: 19px;
+	max-height: 14px;
+	height: 19px;
+	width: 14px;
+	margin: 0px;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="scale_bar_facets_10">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>поворот</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSlider" name="rotate_slider_x">
+     <property name="geometry">
+      <rect>
+       <x>45</x>
+       <y>65</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>359</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="scale_bar_facets_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSlider" name="rotate_slider_y">
+     <property name="geometry">
+      <rect>
+       <x>45</x>
+       <y>105</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>359</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="scale_bar_facets_12">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Y</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSlider" name="rotate_slider_z">
+     <property name="geometry">
+      <rect>
+       <x>45</x>
+       <y>145</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>359</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="scale_bar_facets_13">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Z</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="rotate_spin_x">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>60</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>359</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="rotate_spin_y">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>100</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>359</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="rotate_spin_z">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>140</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>359</number>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="move_bar">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>211</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	background-color: #282c34;
+	border-radius: 20px;
+	margin: 0px;
+}
+
+QPushButton {
+	background-color: #3e90ff;
+	border-radius: 10px;
+}
+
+QLabel {
+	background-color:rgba( 255, 255, 255, 0% ); /*#282c34; */
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+}
+
+QRadioButton:indicator {
+	background-color: rgba( 255, 255, 255, 0% );
+}
+
+QSpinBox {
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 15px;
+	background-color:  #282c34;
+	color: #24a5ff;
+	margin: 0px;
+}
+
+QSpinBox#spin::up-arrow  {
+	min-width: 19px;
+	min-height: 14px;
+	max-width: 19px;
+	max-height: 14px;
+	height: 19px;
+	width: 14px;
+	margin: 0px;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="scale_bar_facets_18">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>перемещение</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSlider" name="move_slider_x">
+     <property name="geometry">
+      <rect>
+       <x>45</x>
+       <y>65</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>-15</number>
+     </property>
+     <property name="maximum">
+      <number>15</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="scale_bar_facets_19">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="scale_bar_facets_20">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Y</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="scale_bar_facets_21">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Z</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="vertex_size_spin_2">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>60</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>50</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QSlider" name="move_slider_y">
+     <property name="geometry">
+      <rect>
+       <x>45</x>
+       <y>105</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>-15</number>
+     </property>
+     <property name="maximum">
+      <number>15</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSlider" name="move_slider_z">
+     <property name="geometry">
+      <rect>
+       <x>45</x>
+       <y>145</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>-15</number>
+     </property>
+     <property name="maximum">
+      <number>15</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickInterval">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="vertex_size_spin_3">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>100</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>50</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="vertex_size_spin_4">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>140</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>50</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="file_info">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>54</y>
+      <width>631</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	background-color: #282c34;
+	border-radius: 20px;
+	margin: 0px;
+}
+
+QLabel {
+	background-color:rgba( 255, 255, 255, 0% ); /*#282c34; */
+	font-family: 'Arial', sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #24a5ff;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="file_name">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>File: filename.obj</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="file_vertexes">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>30</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Vertexes: 1000000</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="file_lines">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>30</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Lines: 10000000</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <zorder>viewer_widget</zorder>
+   <zorder>color_bar</zorder>
+   <zorder>scale_bar</zorder>
+   <zorder>rotate_bar</zorder>
+   <zorder>move_bar</zorder>
+   <zorder>file_info</zorder>
+   <zorder>groupBox</zorder>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ModelViewer</class>
+   <extends>QOpenGLWidget</extends>
+   <header>modelviewer.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
